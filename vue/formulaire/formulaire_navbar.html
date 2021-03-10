@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="./vue/style_navbar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+<table border="0" class="table_border">
+    <tr class="ligne_1">
+        <th class="bouton_identifiant">
+            <?php include("./controller/formulaire_afficher_bouton_identifiant.php"); ?>
+        </th>
+        <th class="logo">
+            <div>
+                <a href="./index.php" class="photo_logo"><img src='./vue/photo_specific/logo_greenIT.png' width='110px' height="110px"></a>
+            </div>
+        </th>
+        <th>
+            <div class="rechercher">
+                <form action="./index.php?action=rehercher" method="post">
+                    <input type="text" class="boit_rechercher" name="mot_cle" placeholder="Rechercher">
+                    <button class="bouton_loupe" class=""><img src="./vue/photo_specific/photo_loupe_2.png"  width='50px'; height='50px'></button>
+                </form>
+            </div>
+        </th>
+        <th class="panier">
+            <div>
+                <img src="./vue/photo_specific/sac.png" width="50px" height="50px">
+                <div class='dropdown'>
+                    <a  href='#' onclick='myFunction()' class='dropbtn_1' style='display: contents;'><img src='./vue/photo_specific/panier.png' class='photo_panier' width='80px' ; height='80px'></a>
+                    <div class="item-panier">
+                        <div id='myDropdown' class='dropdown-content'>
+                            <?php
+                                include("./modele/affichage_different_panier.php");
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </th>
+    </tr>
+    <tr class="categorie" id="navbar">
+        <th ><a href="./index.php">ACCUEIL</a></th>
+        <th class="categorie_1">NOS RAYONS</th>
+        <th class="ligne_2">
+            <div class="navbar_2" >
+                <div class="dropdown">
+                    <button class="dropbtn">TECHNOLOGIE<img src="./vue/photo_specific/supermarche.png" width="30px" height="30px">
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="./index.php?action=bureau">BUREAU<img
+                                src="./vue/photo_specific/photo_legume.png" width="50px" height="50px"></a>
+                        <a href="./index.php?action=maison">MAISON<img
+                                src="./vue/photo_specific/pain.png" width="50px" height="50px"></a>
+                        <a href="./index.php?action=autres">AUTRES<img
+                                src="./vue/photo_specific/boisson.png" width="50px" height="50px"></a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">MODE<img src="./vue/photo_specific/mode.png" width="30px" height="30px">
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="./index.php?action=femme">femme<img
+                                src="./vue/photo_specific/woman.png" width="50px" height="50px"></a>
+                        <a href="./index.php?action=homme">Homme<img
+                                src="./vue/photo_specific/man.png" width="50px" height="50px"></a>
+                        <a href="./index.php?action=enfant">enfant<img
+                                src="./vue/photo_specific/kids.png" width="50px" height="50px"></a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">MAISON & LOISIRS<img src="./vue/photo_specific/maison_loisirs.png" width="30px" height="30px">
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="./index.php?action=salon">Salon<img
+                                src="./vue/photo_specific/salon.jpg" width="50px" height="50px"></a>
+                        <a href="./index.php?action=cusine">Cusine<img
+                                src="./vue/photo_specific/cuisine.jpg" width="50px" height="50px"></a>
+                        <a href="./index.php?action=salle_de_bain">Salle de Bain<img
+                                src="./vue/photo_specific/bain.jpg" width="50px" height="50px"></a>
+                        <a href="./index.php?action=loisir">Loisirs<img
+                                src="./vue/photo_specific/loisirs.jpg" width="50px" height="50px"></a>
+                        <a href="./index.php?action=materiaux">Matériaux<img
+                                src="./vue/photo_specific/tools.jpg" width="50px" height="50px"></a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">ANIMALERIE<img src="./vue/photo_specific/animal_2.png" width="30px" height="30px">
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="./index.php?action=nouriture">Nourriture<img
+                                src="./vue/photo_specific/animal3.jpg" width="50px" height="50px"></a>
+                        <a href="./index.php?action=accessoire">Accessoire pour animal<img
+                                src="./vue/photo_specific/animal4.jpg" width="50px" height="50px"></a>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+        </th>
+    </tr>
+</table>
+</body>
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn_1')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn_1')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content-panier");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+</html>
